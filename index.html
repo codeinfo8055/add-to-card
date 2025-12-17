@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add to Cart - Full UI</title>
+    <title>Add to Cart - Responsive UI</title>
 
     <script
       type="module"
@@ -23,7 +23,7 @@
     />
 
     <style>
-      /* 1. CSS VARIABLES & PROPERTIES (Your original code) */
+      /* 1. CSS VARIABLES & PROPERTIES */
       @property --complete {
         initial-value: 0;
         inherits: true;
@@ -46,7 +46,7 @@
         transition: background 0.3s ease;
       }
 
-      /* 3. GRID BACKGROUND (Your original code) */
+      /* 3. GRID BACKGROUND */
       body::before {
         --size: 45px;
         --line: color-mix(in hsl, canvasText, transparent 85%);
@@ -69,7 +69,7 @@
         z-index: -1;
       }
 
-      /* 4. THEME TOGGLE (Top Right - Your original code) */
+      /* 4. THEME TOGGLE (Top Right) */
       .theme-toggle {
         position: fixed;
         top: 30px;
@@ -102,7 +102,7 @@
         display: block;
       }
 
-      /* 5. SHARE BUTTON SYSTEM (Top Left - Your original code) */
+      /* 5. SHARE BUTTON SYSTEM (Top Left) */
       .share-container {
         position: fixed;
         top: 30px;
@@ -173,9 +173,10 @@
         transform: translateY(60px);
       }
 
-      /* 6. ADD TO CART BUTTON (Center - Your original code) */
+      /* 6. ADD TO CART BUTTON (Center) */
       main {
         scale: 3;
+        transition: transform 0.3s ease;
       }
 
       .atc {
@@ -243,7 +244,7 @@
         }
       }
 
-      /* --- 7. FOOTER MESSENGER ICONS (Newly Added) --- */
+      /* 7. FOOTER MESSENGER ICONS */
       footer {
         position: fixed;
         bottom: 30px;
@@ -256,9 +257,10 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
       }
       .icon-box .box {
-        margin: 0 10px;
         width: 50px;
         height: 50px;
         border-radius: 50%;
@@ -273,8 +275,6 @@
         font-size: 20px;
         color: #fff;
       }
-
-      /* Hover Effects */
       .icon-box .box:hover {
         transform: rotate(360deg);
       }
@@ -283,7 +283,6 @@
         transform: scale(1.5);
       }
 
-      /* Messenger Gradients (From your code) */
       .icon-box .box:nth-child(1) {
         background-image: linear-gradient(#25d366, #56ce82);
       }
@@ -301,6 +300,44 @@
       }
       .icon-box .box:nth-child(6) {
         background-image: linear-gradient(#00aff0, #1bb5ec);
+      }
+
+      /* =========================================
+           MOBILE RESPONSIVE CHANGES 
+           ========================================= */
+      @media (max-width: 600px) {
+        main {
+          scale: 1.6;
+        }
+
+        .theme-toggle {
+          top: 15px;
+          right: 15px;
+          width: 40px;
+          height: 40px;
+        }
+
+        /* --- यह रहा आपका बदलाव: Mobile में Share Icon को छोटा करना --- */
+        .share-container {
+          top: 15px;
+          left: 15px;
+        }
+
+        .share-btn-icon {
+          height: 18px; /* छोटा साइज */
+          width: 18px; /* छोटा साइज */
+          padding: 8px; /* पैडिंग कम की ताकि बटन छोटा दिखे */
+        }
+
+        .icon-box .box {
+          width: 40px;
+          height: 40px;
+          margin: 0 5px;
+        }
+
+        footer {
+          bottom: 20px;
+        }
       }
     </style>
   </head>
